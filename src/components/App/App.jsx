@@ -38,11 +38,7 @@ function App() {
         <div className="App">
             <Header />
             <main>
-
-                <p>yo momma ...</p>
-
                 <FoodForm fetchList={fetchList}/>
-
                 <ItemList shoppingList={shoppingList}/>
             </main>
         </div>

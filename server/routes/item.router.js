@@ -26,6 +26,7 @@ router.get('/', (req, res) => {
         })
         .catch((error) => {
             console.log(`Error making database selection!!! ${sqlText}`, error);
+            res.sendStatus(500);
         })
         
 })
@@ -63,10 +64,10 @@ router.post('/', (req, res) => {
 // PUT ROUTE BELOW IS FOR CLEARING isPurchased status
 // NEED TO ADD SOME LOGIC THAT SELECTS BY ISPURCHASED
 
-router.put('/:id', (req, res) => {
+router.put('/reset', (req, res) => {
 
     
-    let itemId= req.params.id;
+
 
     let isPurchased  = req.body.isPurchased;
   
@@ -75,7 +76,6 @@ router.put('/:id', (req, res) => {
 `
     console.log("Change complete: ", itemId, isPurchased)
   
-    pool.query(queryText, [todoId])
       .then((result) => {
         res.sendStatus(204)
       })
@@ -101,7 +101,7 @@ router.put('/:id', (req, res) => {
 `
     console.log("Change complete: ", itemId, isPurchased)
 
-    pool.query(queryText, [todoId])
+    pool.query(queryText, [itemId])
       .then((result) => {
         res.sendStatus(204)
       })
@@ -123,11 +123,11 @@ router.delete('/', (req, res) => {
 
     // ^^^ MAY NEED TO ADJUST URL ROUTE A BIT HERE ^^^
 
-    let reqId = [req.params.id]
-  
+
     let queryText = `TRUNCATE TABLE "food";`
   
-    pool.query(queryText, reqId)
+    pool.query(sqlText)
+  
     .then((result) => {
         console.log("clear successful!!!");
         res.sendStatus(200)
@@ -161,6 +161,6 @@ router.delete('/:id', (req, res) => {
    
   });
 
-
+module.exports = router;
 
 // Side note, dont forget to create a seperate branch from main.
