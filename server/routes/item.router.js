@@ -2,6 +2,19 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool.js')
 
+
+/*
+
+COMMENT/TO-DO LIST:
+
+NEED TO MESS WITH THE URL OF SOME OF OUR ROUTES TO ENSURE THEY
+WORK CORRECTLY WITH OUR FRONT END CODE
+
+OTHERWISE ALL THESE OPERATIONS ARE FUNCTIONAL ON THE DATABASE/POSTICO
+SIDE OF THINGS
+
+*/
+
 // GET ROUTE
 
 router.get('/', (req, res) => {
