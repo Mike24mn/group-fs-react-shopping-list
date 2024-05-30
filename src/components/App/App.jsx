@@ -1,6 +1,8 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 import React from 'react';
+import ItemList from '../ItemList/ItemList.jsx';
+import FoodForm from '../FoodForm/FoodForm.jsx';
 
 import Header from '../Header/Header.jsx'
 import './App.css';
@@ -32,7 +34,10 @@ function App() {
         <div className="App">
             <Header />
             <main>
+
                 <p>yo momma ...</p>
+
+                <FoodForm fetchList={fetchList}/>
             </main>
         </div>
     );
