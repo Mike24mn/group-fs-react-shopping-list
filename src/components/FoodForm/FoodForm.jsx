@@ -5,7 +5,7 @@ const FoodForm = ({fetchLlist}) => {
 
     const [getItem,setGetItem] = useState("")
     const [getQuantity, setQuantity] = useState("")
-    const [getunit, setGetUnit] = useState("")
+    const [getUnit, setGetUnit] = useState("")
 
     const createList = (event) => {
         event.preventDefault();
@@ -16,10 +16,11 @@ const FoodForm = ({fetchLlist}) => {
         data: {
             name: getItem,
             quantity: getQuantity,
-            unit: getunit
+            unit: getUnit
         }
     })
     .then ((response) => {
+        console.log(response);
         fetchLlist();
 
         // clear the form inputs:
@@ -29,7 +30,7 @@ const FoodForm = ({fetchLlist}) => {
     })
     .catch((error)=>{   
         console.error("failed in axios POST", error )
-    })
+    });
 
     return (
         <>

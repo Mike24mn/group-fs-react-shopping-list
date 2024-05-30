@@ -9,11 +9,15 @@ import './App.css';
 
 
 function App() {
+
+
+
     const [shoppingList, setShoppingList]= useState([]);
 
     useEffect( () => {
         fetchList();
       }, [])
+      
 
       const fetchList =() => {
         axios({
@@ -38,6 +42,8 @@ function App() {
                 <p>yo momma ...</p>
 
                 <FoodForm fetchList={fetchList}/>
+
+                <ItemList shoppingList={shoppingList}/>
             </main>
         </div>
     );
