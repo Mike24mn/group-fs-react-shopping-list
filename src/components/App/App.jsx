@@ -38,12 +38,8 @@ function App() {
         <div className="App">
             <Header />
             <main>
-
-                <p>yo momma ...</p>
-
                 <FoodForm fetchList={fetchList}/>
-
-                <ItemList shoppingList={shoppingList}/>
+                <ItemList shoppingList={shoppingList} fetchList={fetchList}/>
             </main>
         </div>
     );
