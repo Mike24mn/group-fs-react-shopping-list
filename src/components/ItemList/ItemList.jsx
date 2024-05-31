@@ -56,16 +56,16 @@ return (
         <h2>All my items </h2>
 
         <ul>
-        <button onClick={() => clearItem()}>Clear</button>
-         <button onClick={resetBuy}>Reset</button> </ul>
+        <button onClick={() => clearItem()}type="button" class="btn btn-secondary">Clear</button>
+         <button onClick={resetBuy}type="button" class="btn btn-secondary">Reset</button> </ul>
         
         <ul>
             { shoppingList.map((list)=>(
                 <li key={list.id}> {list.name}, {list.quantity}, {list.unit} 
-                <button onClick={() => toggleBuy(list.id)}>  
+                <button onClick={() => toggleBuy(list.id)} type="button" class="btn btn-success">  
                     {showBuy[list.id] ? "Purchased" : "Buy"}
                 </button>
-                 <button onClick={() => handleDelete(list.id)}>Remove</button> 
+                 <button onClick={() => handleDelete(list.id)} type="button" class="btn btn-danger">Remove</button> 
                  </li>
             ))}
         </ul>

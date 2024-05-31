@@ -1,4 +1,15 @@
 main {
-  width: 90%;
-  margin: auto;
+  text-decoration: underline;
+  background-color: grey;
+  color: black
+}
+
+header {
+  text-decoration: underline;
+  font-family: cursive;
+  color: black;
+  opacity: 0.9;
+  font-weight: bold;
+  font-size:larger
+  hover
 }

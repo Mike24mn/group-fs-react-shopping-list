@@ -3,7 +3,7 @@ import axios from 'axios';
 import React from 'react';
 import ItemList from '../ItemList/ItemList.jsx';
 import FoodForm from '../FoodForm/FoodForm.jsx';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from '../Header/Header.jsx'
 import './App.css';
 
