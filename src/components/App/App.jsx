@@ -39,7 +39,7 @@ function App() {
             <Header />
             <main>
                 <FoodForm fetchList={fetchList}/>
-                <ItemList shoppingList={shoppingList}/>
+                <ItemList shoppingList={shoppingList} fetchList={fetchList}/>
             </main>
         </div>
     );

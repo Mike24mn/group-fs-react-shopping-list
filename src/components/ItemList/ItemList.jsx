@@ -1,8 +1,9 @@
 
 import React, { useState } from "react"
 import axios from "axios"
+import App from "../App/App.jsx"
 
-const ItemList =({shoppingList})=> {
+const ItemList =({shoppingList, fetchList})=> {
 
 
     const [showBuy, setBuy] = useState({})
@@ -16,6 +17,7 @@ const ItemList =({shoppingList})=> {
         axios
             .delete(`/api/food/${item.id}`)
             .then(() => {
+                fetchList()   
                 // Handle successful deletion
             })
             .catch((error) => {
@@ -30,6 +32,9 @@ const ItemList =({shoppingList})=> {
                url: `/api/food/${id}`
            })
            .then(()=>{
+
+            fetchList()     
+            
 
          })
          .catch((error)=>{
