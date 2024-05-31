@@ -5,16 +5,16 @@ import axios from "axios"
 const ItemList =({shoppingList})=> {
 
 
-    const [showBuy, setBuy] = useState(false)
+    const [showBuy, setBuy] = useState({})
 
     const resetBuy =()=>{
-        setBuy(false)
+        setBuy({})
     }
 
     const clearItem = ()=> {
         shoppingList.forEach(item => {
         axios
-            .delete(`/api/food/${id}`)
+            .delete(`/api/food/${item.id}`)
             .then(() => {
                 // Handle successful deletion
             })
@@ -37,29 +37,34 @@ const ItemList =({shoppingList})=> {
          })
         }
     
+const toggleBuy = (id) => {
+    setBuy(prevState => ({
+        ...prevState,
+        [id]: true,
+    }))
+}
        
 
 
-    return (
-        <>
+return (
+     <>
         <h2>All my items </h2>
 
         <ul>
-        <button onClick={() => clearItem()}>clear</button>
-         <button onClick={resetBuy}>reset</button> </ul>
+        <button onClick={() => clearItem()}>Clear</button>
+         <button onClick={resetBuy}>Reset</button> </ul>
         
         <ul>
             { shoppingList.map((list)=>(
                 <li key={list.id}> {list.name}, {list.quantity}, {list.unit} 
-                <button onClick = {() => setBuy(!showBuy)}>BUY</button>  
-                 {showBuy ? <span> "purchased" </span> : <span> "buy"</span>}
-                 <button onClick={() => handleDelete(list.id)}>Remove</button> </li>
-            ))
-           
-            
-        }
-            </ul>
-        </>
+                <button onClick={() => toggleBuy(list.id)}>  
+                    {showBuy[list.id] ? "Purchased" : "Buy"}
+                </button>
+                 <button onClick={() => handleDelete(list.id)}>Remove</button> 
+                 </li>
+            ))}
+        </ul>
+    </>
     )
     
 }

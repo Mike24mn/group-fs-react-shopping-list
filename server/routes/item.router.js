@@ -119,7 +119,7 @@ router.put('/:id', (req, res) => {
 // TRUNCATE TABLE DELETES EVERYTHING INCLUDING ID #
 
 
-router.delete('/', (req, res) => {
+router.delete('/clear', (req, res) => {
 
     // ^^^ MAY NEED TO ADJUST URL ROUTE A BIT HERE ^^^
 

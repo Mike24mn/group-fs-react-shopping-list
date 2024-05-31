@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import axios from 'axios'
 
-const FoodForm = ({fetchLlist}) => {
+const FoodForm = ({fetchList}) => {
 
     const [getItem,setGetItem] = useState("")
     const [getQuantity, setQuantity] = useState("")
@@ -22,7 +22,7 @@ const FoodForm = ({fetchLlist}) => {
     })
     .then ((response) => {
         console.log(response);
-        fetchLlist();
+        fetchList();
 
         // clear the form inputs:
         setGetUnit("");
@@ -32,6 +32,7 @@ const FoodForm = ({fetchLlist}) => {
     .catch((error)=>{   
         console.error("failed in axios POST", error )
     });
+}
 
     return (
         <>
@@ -62,7 +63,7 @@ const FoodForm = ({fetchLlist}) => {
 
     )
 }
-}
+
 
 export default FoodForm
 
